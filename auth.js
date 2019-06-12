@@ -1,15 +1,29 @@
-let jwt = require('jsonwebtoken');
-let config = require('./config');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const config = require('./config');
+const pool = require('./database');
+
+const saltRounds = 10;
 
 class Auth {
   login (req, res) {
     let username = req.body.username;
     let password = req.body.password;
-    // For the given username fetch user from DB
-    let mockedUsername = 'admin';
-    let mockedPassword = 'password';
 
     if (username && password) {
+      try {
+        var rows = await pool.query('SELECT password FROM chatuser')
+        var orig_pw = rows[0];
+        var hpw = bcrypt.hash(password, saltRounds).then(
+          function(hash) {
+
+          }
+        );
+      } catch(err) {
+        throw new Error(err)
+      }
+
+
       if (username === mockedUsername && password === mockedPassword) {
         let token = jwt.sign({username: username},
           config.secret,
@@ -43,5 +57,7 @@ class Auth {
     });
   }
 };
+
+
 
 module.exports = new Auth();
