@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const config = require('./config');
-const pool = require('./database');
 
 const saltRounds = 10;
 
