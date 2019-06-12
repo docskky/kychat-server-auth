@@ -16,7 +16,7 @@ class Auth {
         var orig_pw = rows[0];
         var hpw = bcrypt.hash(password, saltRounds).then(
           function(hash) {
-
+            if (orig_pw)
           }
         );
       } catch(err) {

@@ -40,17 +40,16 @@ create table smchat.chatroom (
 	`name` varchar(40)	/*방이름*/
 ) character set = utf8mb4;
 
-drop table if exists smchat.chatmessage;
-create table smchat.chatmessage (
-	`room_id` bigint(20) UNSIGNED NOT NULL,
-	`code` int unsigned not null,
+# messages table is dynamically created when a room is open
+drop table if exists smchat.messages_1234;
+create table smchat.messages_1234 (
+	`code` int unsigned not null AUTO_INCREMENT primary key,
 	`sender` varchar(20),
 	`time` datetime,
 	`type` tinyint not null,
 	`message` JSON,
-	PRIMARY KEY (room_id, code)
+	PRIMARY KEY (code)
 ) character set = utf8mb4;
-ALTER TABLE smchat.chatmessage ADD INDEX search (room_id, time);
 
 drop table if exists smchat.unreadmessagelist;
 create table smchat.unreadmessagelist (
