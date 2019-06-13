@@ -13,10 +13,16 @@ create table smchat.chatuser (
 	`name` varchar(80),
 	`fcm_token` varchar(200),
 	`badge` int,
-	`session_token` varchar(200),
 	`thumbnail` varchar(200),
 	`photo` varchar(200),
 	`rooms` varchar(512)
+) character set = utf8mb4;
+
+drop table if exists smchat.chatfriend;
+create table smchat.chatfriend (
+	`id` varchar(20) NOT NULL, /* 사용자 id */
+	`friend_id` varchar(20) NOT NULL,	/* 친구 id */
+	PRIMARY KEY (id, friend_id)
 ) character set = utf8mb4;
 
 drop table if exists smchat.chatfriend;
