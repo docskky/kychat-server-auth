@@ -26,6 +26,18 @@ pool.getConnection((err, connection) => {
     return
 })
 
-pool.query = util.promisify(pool.query)
+// eg) let obj = await pool.selectOne('select * from tbname')
+pool.selectOne = util.promisify(function(queryStr, params, cbFunc) {
+    pool.query(queryStr, params).then((rows) => {
+        if (rows && rows.length > 0) {
+            cbFunc(null, rows[0]);
+        } else {
+            cbFunc();
+        }
+      }).catch((error) => {
+        cbFunc(error);
+    });
+});
 
+pool.query = util.promisify(pool.query);
 module.exports = pool

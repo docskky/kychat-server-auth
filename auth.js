@@ -1,51 +1,51 @@
 const jwt = require('jsonwebtoken');
+const v = require('voca');
 const bcrypt = require('bcrypt');
-const config = require('./config');
+const config = require('./config/config');
+const dao = require('./database/dao')
+const util = require('util');
+require('./common')();
+
 
 const saltRounds = 10;
+bcrypt.hash = util.promisify(bcrypt.hash);
+
 
 class Auth {
-  login (req, res) {
+  async login (req, res) {
     let username = req.body.username;
     let password = req.body.password;
 
-    if (username && password) {
-      try {
-        var rows = await pool.query('SELECT password FROM chatuser')
-        var orig_pw = rows[0];
-        var hpw = bcrypt.hash(password, saltRounds).then(
-          function(hash) {
-            if (orig_pw)
-          }
-        );
-      } catch(err) {
-        throw new Error(err)
-      }
+    if (v.isEmpty(username) || v.isEmpty(password)) {
+      throw Error.create(-100, 'invalid parameter');
+    }
 
+    let userDao = new dao.ChatDao();
+    var origEncPw = userDao.getEncPassword();
+    var encPw = await bcrypt.hash(password, saltRounds);
 
-      if (username === mockedUsername && password === mockedPassword) {
-        let token = jwt.sign({username: username},
-          config.secret,
-          { expiresIn: '24h' // expires in 24 hours
-          }
-        );
-          // return the JWT token for the future API calls
-        res.json({
-          success: true,
-          message: 'Authentication successful!',
-          token: token
-        });
-      } else {
-        res.send(403).json({
-          success: false,
-          message: 'Incorrect username or password'
-        });
-      }
-    } else {
-      res.send(400).json({
-        success: false,
-        message: 'Authentication failed! Please check the request'
+    if (origEncPw === encPw) {
+      // valid login
+      let token = jwt.sign({username: username},
+        config.secret,
+        { expiresIn: config.tokenLife
+        }
+      );
+      let refreshToken = jwt.sign({username: username},
+        config.refreshTokenSecret,
+        { expiresIn: config.refreshTokenLife 
+        }
+      );
+
+      // return the JWT token for the future API calls
+      res.json({
+        status: 0,
+        message: 'Authentication successful!',
+        token: token,
+        refreshToken: refreshToken
       });
+    } else {
+      thow Error.create(-101, 'invali')
     }
   }
 
@@ -56,7 +56,5 @@ class Auth {
     });
   }
 };
-
-
 
 module.exports = new Auth();

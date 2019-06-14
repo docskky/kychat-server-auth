@@ -29,3 +29,5 @@ class ChatUser {
         }
     }
 }
+
+module.exports = ChatUser
