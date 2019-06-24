@@ -2,9 +2,12 @@
  * > 아이폰의 emojis 캐릭터 오류 문제 해결을 위해 utf8mb4를 적용
  * https://mathiasbynens.be/notes/mysql-utf8mb4
  */
+
+create user 'kiyong'@'localhost' identified by '12345';
+
 create database smchat character set=utf8mb4;
 
-grant all privileges on smchat.* to 'babshim'@'localhost';
+grant all privileges on smchat.* to 'kiyong'@'localhost';
 
 drop table if exists smchat.chatuser;
 create table smchat.chatuser (
@@ -12,17 +15,11 @@ create table smchat.chatuser (
 	`password` varchar(100),
 	`name` varchar(80),
 	`fcm_token` varchar(200),
-	`badge` int,
+	`badge_cnt` int default 0,
 	`thumbnail` varchar(200),
 	`photo` varchar(200),
-	`rooms` varchar(512)
-) character set = utf8mb4;
-
-drop table if exists smchat.chatfriend;
-create table smchat.chatfriend (
-	`id` varchar(20) NOT NULL, /* 사용자 id */
-	`friend_id` varchar(20) NOT NULL,	/* 친구 id */
-	PRIMARY KEY (id, friend_id)
+	`rooms` varchar(512),
+	`event_time` datetime
 ) character set = utf8mb4;
 
 drop table if exists smchat.chatfriend;

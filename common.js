@@ -1,9 +1,9 @@
-function ErrorCreate(status, message) {
+function createError(status, message) {
     var err = new Error(message);
     err.status = status;
     return err;
 }
 
 module.exports = function() {
-    Error.create = ErrorCreate;
+    Error.create = createError;
 }

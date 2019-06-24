@@ -6,6 +6,6 @@ module.exports = {
 
   port : 8000,
   tokenLife : 900,
-  secret: '&Y\Etsz}fw:7MPxA',
+  secret: '&YEtsz}fw:7MPxA',
   refreshTokenSecret: "k>x76zuGhH_g@V#u",
 };

@@ -1,6 +1,7 @@
+var appRoot = require('app-root-path');
 const db = require('mariadb');
 const util = require('util')
-const config = require('./config');
+const config = require(`${appRoot}/config/config`);
 
 const pool = db.createPool({
     host: config.db_host,
@@ -27,14 +28,14 @@ pool.getConnection((err, connection) => {
 })
 
 // eg) let obj = await pool.selectOne('select * from tbname')
-pool.selectOne = util.promisify(function(queryStr, params, cbFunc) {
+pool.selectOne = util.promisify((queryStr, params, cbFunc) => {
     pool.query(queryStr, params).then((rows) => {
         if (rows && rows.length > 0) {
             cbFunc(null, rows[0]);
         } else {
             cbFunc();
         }
-      }).catch((error) => {
+    }).catch((error) => {
         cbFunc(error);
     });
 });

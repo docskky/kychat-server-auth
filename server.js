@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 let auth = require('./auth');
 let middleware = require('./middleware');
 var winston = require('./config/winston');

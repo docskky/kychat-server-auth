@@ -13,8 +13,8 @@ class ChatDao {
     }
 
     async addUser(user) {
-        await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `badge`, `thumbnail`, `photo`, `rooms`) VALUES (?, ?)',
-            [user.id, user.password, user.name, user.fcm_token, user.badge, user.thumbnail, user.photo, user.rooms]);
+        await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `thumbnail`, `photo`) VALUES (?,?,?,?,?,?)',
+            [user.id, user.password, user.name, user.fcm_token, user.thumbnail, user.photo]);
     }
 
     async deleteUser(id) {
