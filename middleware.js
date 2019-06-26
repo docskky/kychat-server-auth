@@ -29,6 +29,22 @@ let checkToken = (req, res, next) => {
   }
 };
 
+let errorLog = (err, req, res, next) => {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  //res.status(err.status || 500);
+  //res.render('error');
+  if (err.status) {
+    res.json({ status: err.status , message: error.message });
+  } else {
+    res.json({ status: -1 , message: 'Internal error has occurred.' });
+  }
+};
+
 module.exports = {
-  checkToken: checkToken
+  checkToken: checkToken,
+  errorLog: errorLog
 };

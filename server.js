@@ -2,12 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 let auth = require('./auth');
+let member = require('./member');
 let middleware = require('./middleware');
 var winston = require('./config/winston');
 
 // Starting point of the server
 function main () {
   let app = express(); // Export app for other routes to use
+  var authRoute = express.Router();
+
   const port = process.env.PORT || 8000;
   app.use(bodyParser.urlencoded({ // Middleware
     extended: true
@@ -17,29 +20,19 @@ function main () {
   app.use(morgan('combined', { stream: winston.stream }));
 
   // error handling
-  app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    //res.status(err.status || 500);
-    //res.render('error');
-    if (err.status) {
-      res.json({ status: err.status , message: error.message });
-    } else {
-      res.json({ status: -1 , message: 'Internal error has occurred.' });
-    }
-  });
+  app.use(middleware.errorLog);
 
   // Routes & Handlers
   app.post('/login', auth.login);
+  app.post('/join', member.join);
   app.get('/', middleware.checkToken, function (req, res) {
     res.json({
       success: true,
       message: 'Index page'
     });
   });
+
+  app.use(authRoute);
   app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 }
 

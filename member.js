@@ -9,12 +9,11 @@ const user = require('./model/user');
 
 require('./common')();
 
-
-const saltRounds = 10;
 bcrypt.hash = util.promisify(bcrypt.hash);
 
 
-class Auth {
+class Member {
+    
   async login (req, res) {
     let username = req.body.username;
     let password = req.body.password;
@@ -52,12 +51,25 @@ class Auth {
     }
   }
 
-  index (req, res) {
-    res.json({
-      success: true,
-      message: 'Index page'
-    });
+  async join(req, res) {
+    let password = req.body.password;
+
+    var user = new user();
+    user.id = req.body.id;
+    user.name = req.body.name;
+    user.fcm_token = req.body.fcm_token;
+
+    if (v.isEmpty(username) || v.isEmpty(password)) {
+      throw Error.create(status.invalidParameter, 'invalid parameter');
+    }
+
+    user.password = await bcrypt.hash(password, saltRounds);
+    let userDao = new dao.ChatDao();
+
+    userDao.addUser(user);
+
   }
+
 };
 
-module.exports = new Auth();
+module.exports = new Member();
