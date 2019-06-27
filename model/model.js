@@ -2,14 +2,14 @@ const v = require('voca');
 
 class ChatUser {
     constructor(options = {}) {
-        id = ''
-        password = ''
-        name = ''
-        fcm_token = ''
-        badge = 0
-        thumbnail = ''
-        photo = ''
-        rooms = ''
+        this.id = ''
+        this.password = ''
+        this.name = ''
+        this.fcm_token = ''
+        this.badge = 0
+        this.thumbnail = ''
+        this.photo = ''
+        this.rooms = ''
         
         Object.assign(this, options);
     }
@@ -28,6 +28,8 @@ class ChatUser {
             this.rooms = '';
         }
     }
-}
+};
 
-module.exports = ChatUser
+module.exports = {
+    ChatUser : ChatUser
+};

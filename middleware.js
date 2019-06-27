@@ -1,5 +1,6 @@
 let jwt = require('jsonwebtoken');
 const config = require('./config/config');
+var winston = require('./config/winston');
 
 let checkToken = (req, res, next) => {
   let token = req.headers['x-access-token'] || req.headers['authorization']; // Express headers are auto converted to lowercase
@@ -29,16 +30,19 @@ let checkToken = (req, res, next) => {
   }
 };
 
-let errorLog = (err, req, res, next) => {
+let handleError = (err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  console.error(err);
+  winston.error(err);
 
   // render the error page
   //res.status(err.status || 500);
   //res.render('error');
   if (err.status) {
-    res.json({ status: err.status , message: error.message });
+    res.json({ status: err.status , message: err.message });
   } else {
     res.json({ status: -1 , message: 'Internal error has occurred.' });
   }
@@ -46,5 +50,5 @@ let errorLog = (err, req, res, next) => {
 
 module.exports = {
   checkToken: checkToken,
-  errorLog: errorLog
+  handleError: handleError
 };

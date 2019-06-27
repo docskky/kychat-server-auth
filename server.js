@@ -9,7 +9,7 @@ var winston = require('./config/winston');
 // Starting point of the server
 function main () {
   let app = express(); // Export app for other routes to use
-  var authRoute = express.Router();
+  var chatRoute = express.Router();
 
   const port = process.env.PORT || 8000;
   app.use(bodyParser.urlencoded({ // Middleware
@@ -20,7 +20,7 @@ function main () {
   app.use(morgan('combined', { stream: winston.stream }));
 
   // error handling
-  app.use(middleware.errorLog);
+  app.use(middleware.handleError);
 
   // Routes & Handlers
   app.post('/login', auth.login);
@@ -32,7 +32,12 @@ function main () {
     });
   });
 
-  app.use(authRoute);
+  //authRoute.use(middleware.checkToken);
+
+  //authRoute.get('/me', );
+
+  //app.use('/chat', authRoute);
+
   app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 }
 

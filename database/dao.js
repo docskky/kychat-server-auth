@@ -1,27 +1,39 @@
 const pool = require('./database');
-const user = require('../model/user');
+const user = require('../model/model');
 require('../common')();
 
 class ChatDao {
     async getEncPassword(id) {
-        let rows = await pool.query('SELECT password FROM chatuser where `id`=?', [id]);
-        if (rows.length > 0) {
-            return rows.first['password']
-        } else {
-            throw Error.create(-2, 'unknown user id');
+        try {
+            let rows = await pool.query('SELECT password FROM chatuser where `id`=?', [id]);
+            if (rows.length > 0) {
+                return rows.first['password']
+            } else {
+                return Error.create(-2, 'unknown user id');
+            }
+        } catch (error) {
+            return error;
         }
     }
 
     async addUser(user) {
-        await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `thumbnail`, `photo`) VALUES (?,?,?,?,?,?)',
+        try {
+            await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `thumbnail`, `photo`) VALUES (?,?,?,?,?,?)',
             [user.id, user.password, user.name, user.fcm_token, user.thumbnail, user.photo]);
+        } catch (error) {
+            return error;
+        }
     }
 
     async deleteUser(id) {
-        await pool.query('DELETE FROM chatuser where `id`=?', [id]);
+        try {
+            await pool.query('DELETE FROM chatuser where `id`=?', [id]);
+        } catch (error) {
+            return error;
+        }
     }
 }
 
 module.exports = {
-    ChatDao : ChatDao
+    chat : new ChatDao()
 }

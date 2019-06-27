@@ -8,4 +8,6 @@ module.exports = {
   tokenLife : 900,
   secret: '&YEtsz}fw:7MPxA',
   refreshTokenSecret: "k>x76zuGhH_g@V#u",
+
+  saltRounds: 10
 };
