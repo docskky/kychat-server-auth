@@ -50,8 +50,7 @@ create table smchat.messages_1234 (
 	`sender` varchar(20),
 	`time` datetime,
 	`type` tinyint not null,
-	`message` JSON,
-	PRIMARY KEY (code)
+	`message` JSON
 ) character set = utf8mb4;
 
 drop table if exists smchat.unreadmessagelist;
