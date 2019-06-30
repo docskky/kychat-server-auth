@@ -1,6 +1,8 @@
 let jwt = require('jsonwebtoken');
 const config = require('./config/config');
 var winston = require('./config/winston');
+const model = require('./model/model');
+const status = require('./config/status');
 
 let checkToken = (req, res, next) => {
   let token = req.headers['x-access-token'] || req.headers['authorization']; // Express headers are auto converted to lowercase
@@ -13,10 +15,11 @@ let checkToken = (req, res, next) => {
 
     jwt.verify(token, config.secret, (err, decoded) => {
       if (err) {
-        return res.json({
-          success: false,
-          message: 'Token is not valid'
-        });
+        console.log('jwt.verify error:'+err);
+        return res.json(new model.Response({
+          status: status.invalidToken,
+          message: 'Invalid token'
+        }));
       } else {
         req.decoded = decoded;
         next();
@@ -44,7 +47,7 @@ let handleError = (err, req, res, next) => {
   if (err.status) {
     res.json({ status: err.status , message: err.message });
   } else {
-    res.json({ status: -1 , message: 'Internal error has occurred.' });
+    res.json({ status: -1 , messawge: 'Internal error has occurred.' });
   }
 };
 

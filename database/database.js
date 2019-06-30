@@ -40,5 +40,5 @@ pool.selectOne = util.promisify((queryStr, params, cbFunc) => {
     });
 });
 
-pool.query = util.promisify(pool.query);
+//pool.query = util.promisify(pool.query);
 module.exports = pool

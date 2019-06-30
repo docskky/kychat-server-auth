@@ -25,12 +25,8 @@ function main () {
   // Routes & Handlers
   app.post('/login', auth.login);
   app.post('/join', member.join);
-  app.get('/', middleware.checkToken, function (req, res) {
-    res.json({
-      success: true,
-      message: 'Index page'
-    });
-  });
+  app.post('/refresh_token', auth.refreshToken);
+  app.get('/', middleware.checkToken, auth.responseSuccess);
 
   //authRoute.use(middleware.checkToken);
 

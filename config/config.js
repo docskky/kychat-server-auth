@@ -5,7 +5,8 @@ module.exports = {
   db_pw: '12345',
 
   port : 8000,
-  tokenLife : 900,
+  tokenTTL : 60*120,
+  refreshTokenTTL : 60*60*24*30,
   secret: '&YEtsz}fw:7MPxA',
   refreshTokenSecret: "k>x76zuGhH_g@V#u",
 

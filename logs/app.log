@@ -29,3 +29,91 @@
 {"status":-200,"level":"error"}
 {"message":"::1 - - [27/Jun/2019:15:58:30 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.13.0\"\n","level":"info"}
 {"message":"::1 - - [27/Jun/2019:16:00:39 +0000] \"POST /join HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.13.0\"\n","level":"info"}
+{"message":"::1 - - [27/Jun/2019:16:15:50 +0000] \"POST /join HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.13.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:15:13:43 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:15:14:45 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:16:16:20 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:16:19:09 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:16:33:26 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:16:34:08 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [28/Jun/2019:16:51:08 +0000] \"POST /login HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [28/Jun/2019:16:55:15 +0000] \"POST /login HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:16:55:31 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:17:03:32 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:17:04:35 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [28/Jun/2019:17:32:10 +0000] \"POST /login HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [28/Jun/2019:17:35:32 +0000] \"POST /login HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [28/Jun/2019:17:39:14 +0000] \"POST /login HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:17:40:58 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"status":-200,"level":"error"}
+{"message":"::1 - - [28/Jun/2019:17:47:47 +0000] \"POST /login HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:11:30:51 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:11:32:02 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:11:32:28 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:13:21:55 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:13:36:01 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:13:37:14 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:27:35 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":{},"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:29:58 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:30:13 +0000] \"POST /join HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:14:32:07 +0000] \"POST /join HTTP/1.1\" 200 12 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:37:27 +0000] \"POST /login HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:40:36 +0000] \"POST /login HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:41:08 +0000] \"POST /login HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:41:57 +0000] \"POST /login HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:42:40 +0000] \"POST /login HTTP/1.1\" 200 54 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:52:57 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:14:59:12 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:15:02:02 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:15:04:46 +0000] \"POST /login HTTP/1.1\" 200 390 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:15:05:06 +0000] \"POST /login HTTP/1.1\" 200 390 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:15:23:26 +0000] \"POST /login HTTP/1.1\" 200 390 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [29/Jun/2019:15:23:34 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:15:24:05 +0000] \"POST /login HTTP/1.1\" 200 401 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:16:04:44 +0000] \"GET / HTTP/1.1\" 200 48 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:16:09:09 +0000] \"GET / HTTP/1.1\" 500 1449 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:16:09:57 +0000] \"GET / HTTP/1.1\" 200 53 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:16:11:05 +0000] \"GET / HTTP/1.1\" 200 53 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:16:11:11 +0000] \"POST /login HTTP/1.1\" 200 401 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [29/Jun/2019:16:14:02 +0000] \"GET / HTTP/1.1\" 200 63 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [30/Jun/2019:14:25:27 +0000] \"POST /login HTTP/1.1\" 200 401 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [30/Jun/2019:14:25:41 +0000] \"GET / HTTP/1.1\" 200 63 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [30/Jun/2019:15:10:12 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [30/Jun/2019:15:11:17 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [30/Jun/2019:15:16:01 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [30/Jun/2019:15:17:53 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [30/Jun/2019:15:33:12 +0000] \"POST /login HTTP/1.1\" 200 55 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"error":{},"level":"error","message":"uncaughtException: Auth is not a constructor\nTypeError: Auth is not a constructor\n    at Object.<anonymous> (/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/auth.js:110:18)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:653:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:585:3)\n    at Module.require (internal/modules/cjs/loader.js:690:17)\n    at require (internal/modules/cjs/helpers.js:25:18)\n    at Object.<anonymous> (/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/server.js:4:12)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)","stack":"TypeError: Auth is not a constructor\n    at Object.<anonymous> (/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/auth.js:110:18)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:653:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:585:3)\n    at Module.require (internal/modules/cjs/loader.js:690:17)\n    at require (internal/modules/cjs/helpers.js:25:18)\n    at Object.<anonymous> (/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/server.js:4:12)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)","exception":true,"date":"Mon Jul 01 2019 01:05:57 GMT+0900 (Korean Standard Time)","process":{"pid":16458,"uid":501,"gid":20,"cwd":"/Volumes/ExtSSD/Projects/kychat/kychat-server-auth","execPath":"/usr/local/bin/node","version":"v10.16.0","argv":["/usr/local/bin/node","/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/server.js"],"memoryUsage":{"rss":53821440,"heapTotal":37896192,"heapUsed":21705648,"external":374292}},"os":{"loadavg":[2.16064453125,1.87451171875,1.7705078125],"uptime":9552},"trace":[{"column":18,"file":"/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/auth.js","function":null,"line":110,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":653,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"tryModuleLoad","line":593,"method":null,"native":false},{"column":3,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":585,"method":"_load","native":false},{"column":17,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":690,"method":"require","native":false},{"column":18,"file":"internal/modules/cjs/helpers.js","function":"require","line":25,"method":null,"native":false},{"column":12,"file":"/Volumes/ExtSSD/Projects/kychat/kychat-server-auth/server.js","function":null,"line":4,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false}]}
