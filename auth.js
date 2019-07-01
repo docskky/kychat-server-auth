@@ -14,8 +14,8 @@ require('./common')();
 bcrypt.hash = util.promisify(bcrypt.hash);
 
 
-var Auth = {
-  login : async (req, res) => {
+var Auth = function() {
+  this.login = async (req, res) => {
     let username = req.body.id;
     let password = req.body.password;
 
@@ -29,7 +29,7 @@ var Auth = {
       const match = await bcrypt.compare(password, pwHash);
       if (match) {
 
-        tokens = this._createTokens(username);
+        tokens = createTokens(username);
         // return the JWT token for the future API calls
         
         res.json(new model.Response({
@@ -45,48 +45,56 @@ var Auth = {
       middleware.handleError(error, req, res);
     }
 
-  },
+  };
 
-  refreshToken : async (req, res) => {
+  this.refreshToken = async (req, res) => {
     let refreshToken = req.body.refreshToken;
 
+    console.debug('refreshToken: '+refreshToken);
     if (v.isEmpty(refreshToken)) {
       middleware.handleError(Error.create(status.invalidParameter, 'invalid parameter'), req, res);
       return;
     }
 
     try {
-      var decoded = jwt.verify(refreshToken, config.secret);
-      if (decoded && decoded.username) {
-        tokens = this._createTokens(username);
-        res.json(new model.Response({
-          status: status.success,
-          message: 'Authentication successful!',
-          result: tokens
-        }));
-      } else {
-        middleware.handleError(Error.create(status.invalidToken, 'invalid token'), req, res);
-        return;
-      }
+      jwt.verify(refreshToken, config.refreshTokenSecret, (err, decoded) => {
+        if (err) {
+          console.log('jwt.verify error:'+err);
+          middleware.handleError(Error.create(status.invalidToken, 'invalid token'), req, res);
+        } else {
+          console.debug('refresh token decoded: '+JSON.stringify(decoded));
+          if (decoded['username']) {
+            tokens = createTokens(decoded['username']);
+            res.json(new model.Response({
+              status: status.success,
+              message: 'Token refresh successful!',
+              result: tokens
+            }));
+          } else {
+            middleware.handleError(Error.create(status.invalidToken, 'invalid token'), req, res);
+            return;
+          }
+        }
+      });
     } catch (error) {
       middleware.handleError(error, req, res);
     }
-  },
+  }
 
-  responseSuccess: async (req, res) => {
+  this.responseSuccess = async (req, res) => {
 
     res.json(new model.Response({
       status: status.success,
       message: 'Authentication successful!',
     }));
-  },
+  };
 
   //
   //
   //
 
   // create tokens
-  _createTokens: (username) => {
+  function createTokens(username) {
     // valid login
     let token = jwt.sign({username: username},
       config.secret,
@@ -102,8 +110,7 @@ var Auth = {
       accessToken: token,
       refreshToken: refreshToken
     };
-  }
-  
+  };
 
 };
 

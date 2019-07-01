@@ -10,12 +10,11 @@ let middleware = require('./middleware');
 
 require('./common')();
 
-bcrypt.hash = util.promisify(bcrypt.hash);
 
+var Member = function() {
+  var hash = util.promisify(bcrypt.hash);
 
-class Member {
-
-  async join(req, res) {
+  this.join = async (req, res) => {
     let password = req.body.password;
 
     var user = new model.ChatUser();
@@ -29,7 +28,7 @@ class Member {
     }
 
     try {
-      user.password = await bcrypt.hash(password, config.saltRounds);
+      user.password = await hash(password, config.saltRounds);
       let error = await dao.addUser(user);
       console.debug('dao.addUser(user) = '+error);
       if (error) {
