@@ -40,6 +40,14 @@ var ChatService = function() {
             return;
         }
     };
+
+    this.joinRoom = async (req, res) => {
+        var room = new model.ChatRoom();
+        room.creation = new Date();
+        room.name = req.body.name;
+        room.owner = req.userid;
+        room.userList = room.owner;
+    };
 };
 
 module.exports = new ChatService();
