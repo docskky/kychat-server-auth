@@ -29,18 +29,13 @@ create table smchat.chatfriend (
 	PRIMARY KEY (id, friend_id)
 ) character set = utf8mb4;
 
-drop table if exists smchat.chatroomuserlist;
-create table smchat.chatroomuserlist (
-	`room_id` bigint(20) unsigned NOT NULL, /* room id */
-	`user_id` varchar(20) NOT NULL, /* 사용자 id */
-	PRIMARY KEY (room_id, user_id)
-) character set = utf8mb4;
-
 drop table if exists smchat.chatroom;
 create table smchat.chatroom (
 	`rid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT primary key, /* 시퀀스 */
 	`creation` Datetime,	/*생성일자 */
-	`name` varchar(40)	/*방이름*/
+	`name` varchar(40),	/*방이름*/
+	`owner` varchar(20),	/*생성자*/
+	`user_list` varchar(1024) /* 참여자 목록 */
 ) character set = utf8mb4;
 
 # messages table is dynamically created when a room is open

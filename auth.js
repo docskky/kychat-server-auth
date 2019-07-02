@@ -33,7 +33,6 @@ var Auth = function() {
         // return the JWT token for the future API calls
         
         res.json(new model.Response({
-          status: status.success,
           message: 'Authentication successful!',
           result: tokens
         }));

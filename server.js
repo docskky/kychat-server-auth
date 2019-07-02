@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 let auth = require('./auth');
+let chat = require('./chat_service');
 let member = require('./member');
 let middleware = require('./middleware');
 var winston = require('./config/winston');
@@ -27,6 +28,7 @@ function main () {
   app.post('/join', member.join);
   app.post('/refresh_token', auth.refreshToken);
   app.get('/', middleware.checkToken, auth.responseSuccess);
+  app.post('/chat/create_room', middleware.checkToken, chat.createRoom);
 
   //authRoute.use(middleware.checkToken);
 

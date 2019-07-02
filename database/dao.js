@@ -1,6 +1,6 @@
 const pool = require('./database');
 const util = require('util')
-const user = require('../model/model');
+const model = require('../model/model');
 require('../common')();
 
 async function getEncPassword(id, cbFunc) {
@@ -20,7 +20,7 @@ async function getEncPassword(id, cbFunc) {
 async function addUser(user, cbFunc) {
     try {
         await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `thumbnail`, `photo`) VALUES (?,?,?,?,?,?)',
-        [user.id, user.password, user.name, user.fcm_token, user.thumbnail, user.photo]);
+        [user["id"], user["password"], user["name"], user["fcm_token"], user["thumbnail"], user["photo"]]);
         cbFunc();
     } catch (error) {
         cbFunc(error);
@@ -36,8 +36,20 @@ async function deleteUser(id, cbFunc) {
     }
 }
 
+async function createRoom(room, cbFunc) {
+    try {
+        result = await pool.query('INSERT INTO chatroom (`creation`, `name`, `owner`, `user_list`) VALUES (?,?,?,?)', [
+            room["creation"], room["name"], room["owner"], room["userList"]]);
+        console.debug('createRoom:'+JSON.stringify(result));
+        cbFunc(null, result);
+    } catch (error) {
+        cbFunc(error);
+    }
+}
+
 module.exports = {
     getEncPassword : util.promisify(getEncPassword),
     addUser : util.promisify(addUser),
     deleteUser : util.promisify(deleteUser),
+    createRoom : util.promisify(createRoom)
 }

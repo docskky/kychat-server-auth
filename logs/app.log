@@ -152,3 +152,10 @@
 {"status":-110,"level":"error"}
 {"message":"::1 - - [01/Jul/2019:20:19:12 +0000] \"POST /join HTTP/1.1\" 200 45 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [01/Jul/2019:20:23:19 +0000] \"POST /join HTTP/1.1\" 200 12 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [02/Jul/2019:15:12:48 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [02/Jul/2019:15:16:58 +0000] \"POST /chat/create_room HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1054,"sqlState":"42S22","code":"ER_BAD_FIELD_ERROR","level":"error"}
+{"message":"::1 - - [02/Jul/2019:15:17:11 +0000] \"POST /chat/create_room HTTP/1.1\" 200 271 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [02/Jul/2019:15:25:16 +0000] \"POST /chat/create_room HTTP/1.1\" 200 137 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [02/Jul/2019:15:31:27 +0000] \"POST /chat/create_room HTTP/1.1\" 200 137 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [02/Jul/2019:15:33:16 +0000] \"POST /chat/create_room HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}

@@ -21,7 +21,8 @@ let checkToken = (req, res, next) => {
           message: 'Invalid token'
         }));
       } else {
-        req.decoded = decoded;
+        req.userid = decoded.username;
+        req.params.model = 'Model'
         next();
       }
     });
@@ -47,7 +48,7 @@ let handleError = (err, req, res, next) => {
   if (err.status) {
     res.json({ status: err.status , message: err.message });
   } else {
-    res.json({ status: -1 , messawge: 'Internal error has occurred.' });
+    res.json({ status: -1 , messawge: err.message });
   }
 };
 

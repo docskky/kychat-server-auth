@@ -2,6 +2,15 @@ var appRoot = require('app-root-path');
 const v = require('voca');
 const status = require(`${appRoot}/config/status`);
 
+class Response {
+    constructor(options = {}) {
+        this.status = status.success;
+        this.message = '';
+        this.result = {};
+        Object.assign(this, options);
+    }
+}
+
 class ChatUser {
     constructor(options = {}) {
         this.id = ''
@@ -32,16 +41,20 @@ class ChatUser {
     }
 };
 
-class Response {
+class ChatRoom {
     constructor(options = {}) {
-        this.status = status.success;
-        this.message = '';
-        this.result = {};
+        this.rid = status.rid;
+        this.creation = null;
+        this.name = '';
+        this.owner = '';
+        this.userList = '';
+
         Object.assign(this, options);
     }
 }
 
 module.exports = {
     ChatUser : ChatUser,
+    ChatRoom : ChatRoom,
     Response : Response
 };
