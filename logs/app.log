@@ -159,3 +159,16 @@
 {"message":"::1 - - [02/Jul/2019:15:25:16 +0000] \"POST /chat/create_room HTTP/1.1\" 200 137 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [02/Jul/2019:15:31:27 +0000] \"POST /chat/create_room HTTP/1.1\" 200 137 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [02/Jul/2019:15:33:16 +0000] \"POST /chat/create_room HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:13:43:10 +0000] \"GET / HTTP/1.1\" 200 53 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:13:58:45 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:13:59:10 +0000] \"POST /chat/create_room HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:09:26 +0000] \"POST /chat/create_room HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:16:57 +0000] \"POST /chat/create_room HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:24:38 +0000] \"POST /chat/join_room HTTP/1.1\" 200 53 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:24:43 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:24:59 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1062,"sqlState":"23000","code":"ER_DUP_ENTRY","level":"error"}
+{"message":"::1 - - [03/Jul/2019:15:27:07 +0000] \"POST /chat/join_room HTTP/1.1\" 200 195 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:38:21 +0000] \"POST /chat/create_room HTTP/1.1\" 200 144 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:38:46 +0000] \"POST /login HTTP/1.1\" 200 409 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [03/Jul/2019:15:39:14 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}

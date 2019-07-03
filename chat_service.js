@@ -17,7 +17,7 @@ var ChatService = function() {
         room.creation = new Date();
         room.name = req.body.name;
         room.owner = req.userid;
-        room.userList = room.owner;
+        //room.userList = room.owner;
 
         if (v.isEmpty(room.name)) {
           middleware.handleError(Error.create(status.invalidParameter, 'invalid parameter'), req, res);
@@ -42,12 +42,41 @@ var ChatService = function() {
     };
 
     this.joinRoom = async (req, res) => {
-        var room = new model.ChatRoom();
-        room.creation = new Date();
-        room.name = req.body.name;
-        room.owner = req.userid;
-        room.userList = room.owner;
+        let userid = req.userid;
+        let roomid = req.body.roomid;
+
+        if (v.isEmpty(roomid)) {
+            middleware.handleError(Error.create(status.invalidParameter, 'invalid parameter'), req, res);
+            return;
+        }
+
+        try {
+            await dao.joinRoom(roomid, userid);
+            res.json(new model.Response());
+        } catch (error) {
+            middleware.handleError(error, req, res);
+            return;
+        }
     };
+
+    this.exitRoom = async (req, res) => {
+        let userid = req.userid;
+        let roomid = req.body.roomid;
+
+        if (v.isEmpty(roomid)) {
+            middleware.handleError(Error.create(status.invalidParameter, 'invalid parameter'), req, res);
+            return;
+        }
+
+        try {
+            await dao.joinRoom(roomid, userid);
+            res.json(new model.Response());
+        } catch (error) {
+            middleware.handleError(error, req, res);
+            return;
+        }
+    };
+
 };
 
 module.exports = new ChatService();

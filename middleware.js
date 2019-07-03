@@ -48,7 +48,7 @@ let handleError = (err, req, res, next) => {
   if (err.status) {
     res.json({ status: err.status , message: err.message });
   } else {
-    res.json({ status: -1 , messawge: err.message });
+    res.json({ status: -1 , message: err.message });
   }
 };
 

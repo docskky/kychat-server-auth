@@ -29,6 +29,7 @@ function main () {
   app.post('/refresh_token', auth.refreshToken);
   app.get('/', middleware.checkToken, auth.responseSuccess);
   app.post('/chat/create_room', middleware.checkToken, chat.createRoom);
+  app.post('/chat/join_room', middleware.checkToken, chat.joinRoom);
 
   //authRoute.use(middleware.checkToken);
 
