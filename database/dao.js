@@ -2,6 +2,7 @@ const pool = require('./database');
 const util = require('util');
 const status = require('../config/status');
 const model = require('../model/model');
+const utils = require('../utils');
 require('../common')();
 
 async function getEncPassword(id, cbFunc) {
@@ -63,22 +64,42 @@ async function createRoom(room, cbFunc) {
 }
 
 async function joinRoom(roomid, userid, cbFunc) {
+    var conn = null;
+    var trans = null;
     try {
-        let rows = await pool.query('SELECT `rooms` FROM chatuser WHERE `id`=?', [userid]);
+        console.debug('step0');
+        conn = await pool.getConnection();
+
+        trans = await conn.beginTransaction();
+        let rows = await conn.query('SELECT `rooms` FROM chatuser WHERE `id`=?', [userid]);
         if(rows.length == 0) {
+            console.debug('step4');
             cbFunc(Error.create(status.unknownUser, 'unknown user id'));
             return;
         }
-
+        console.debug('result:'+rows);
         var rooms = rows[0]['rooms'];
-        rooms += ' ' + roomid;
-        await pool.query('UPDATE chatuser SET `rooms` = ?', [rooms]);
+        var list = new utils.StringList();
+        list.set(rooms);
+        list.add(roomid);
+        rooms = list.toString();
+        console.debug('step5');
+        await conn.query('UPDATE chatuser SET `rooms` = ? WHERE `id`=?', [rooms, userid]);
+        await conn.query('INSERT INTO chatmember (`roomid`, `user`) VALUES (?,?)', [roomid, userid]);
 
-        await pool.query('INSERT INTO chatmember (`roomid`, `user`) VALUES (?,?)', [roomid, userid]);
-
+        conn.commit();
         cbFunc();
+
     } catch (error) {
+        if(conn) {
+            console.log('rollback!!!');
+            conn.rollback();
+        }
         cbFunc(error);
+    } finally {
+        if(conn) {
+            conn.end();
+        }
     }
 }
 

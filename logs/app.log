@@ -172,3 +172,40 @@
 {"message":"::1 - - [03/Jul/2019:15:38:21 +0000] \"POST /chat/create_room HTTP/1.1\" 200 144 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [03/Jul/2019:15:38:46 +0000] \"POST /login HTTP/1.1\" 200 409 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [03/Jul/2019:15:39:14 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:13:37:31 +0000] \"POST /login HTTP/1.1\" 200 409 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:13:37:46 +0000] \"POST /chat/create_room HTTP/1.1\" 200 139 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:13:45:26 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:13:45:55 +0000] \"POST /chat/join_room HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:13:49:08 +0000] \"POST /chat/join_room HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:13:51:17 +0000] \"POST /chat/join_room HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [04/Jul/2019:13:54:11 +0000] \"POST /chat/join_room HTTP/1.1\" 200 65 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:14:04:22 +0000] \"POST /chat/join_room HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:22:03 +0000] \"POST /chat/join_room HTTP/1.1\" 200 67 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:25:02 +0000] \"POST /chat/join_room HTTP/1.1\" 200 67 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:14:28:48 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:32:26 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:32:58 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:14:36:33 +0000] \"POST /chat/join_room HTTP/1.1\" - - \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:36:39 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:36:58 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:39:15 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:40:00 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [04/Jul/2019:14:40:14 +0000] \"POST /chat/join_room HTTP/1.1\" 200 339 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:14:40:29 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:16:05:27 +0000] \"POST /chat/join_room HTTP/1.1\" 200 53 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:16:05:32 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"level":"error"}
+{"message":"::1 - - [04/Jul/2019:16:05:44 +0000] \"POST /chat/join_room HTTP/1.1\" 200 46 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1062,"sqlState":"23000","code":"ER_DUP_ENTRY","level":"error"}
+{"message":"::1 - - [04/Jul/2019:16:06:24 +0000] \"POST /chat/join_room HTTP/1.1\" 200 195 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [04/Jul/2019:16:07:08 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
