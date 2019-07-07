@@ -30,6 +30,7 @@ function main () {
   app.get('/', middleware.checkToken, auth.responseSuccess);
   app.post('/chat/create_room', middleware.checkToken, chat.createRoom);
   app.post('/chat/join_room', middleware.checkToken, chat.joinRoom);
+  app.post('/chat/exit_room', middleware.checkToken, chat.exitRoom);
 
   //authRoute.use(middleware.checkToken);
 

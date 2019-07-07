@@ -34,7 +34,7 @@ create table smchat.chatroom (
 	`rid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT primary key, /* 시퀀스 */
 	`creation` Datetime,	/*생성일자 */
 	`name` varchar(40),	/*방이름*/
-	`owner` varchar(20)	/*생성자*/
+	`creater` varchar(20)	/*생성자*/
 ) character set = utf8mb4;
 
 drop table if exists smchat.chatmember;

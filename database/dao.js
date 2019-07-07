@@ -54,10 +54,20 @@ async function deleteUser(id, cbFunc) {
 
 async function createRoom(room, cbFunc) {
     try {
-        result = await pool.query('INSERT INTO chatroom (`creation`, `name`, `owner`) VALUES (?,?,?)', [
-            room["creation"], room["name"], room["owner"]]);
-            await pool.query('INSERT INTO chatmember (`roomid`, `user`) VALUES (?,?)', [result["insertId"], room["owner"]]);
-            cbFunc(null, result);
+        result = await pool.query('INSERT INTO chatroom (`creation`, `name`, `creater`) VALUES (?,?,?)', 
+            [room["creation"], room["name"], room["creater"]]);
+        const roomid = result["insertId"];
+        await pool.query('INSERT INTO chatmember (`roomid`, `user`) VALUES (?,?)', [roomid, room["creater"]]);
+
+        // 메시지 테이블을 생성한다.
+        await pool.query('create table messages_'+roomid+' (\
+            `rid` int unsigned not null AUTO_INCREMENT primary key,\
+            `sender` varchar(20),\
+            `time` datetime,\
+            `type` tinyint not null,\
+            `message` JSON\
+        ) character set = utf8mb4;');
+        cbFunc(null, result);
     } catch (error) {
         cbFunc(error);
     }
@@ -103,10 +113,55 @@ async function joinRoom(roomid, userid, cbFunc) {
     }
 }
 
+async function exitRoom(roomid, userid, cbFunc) {
+    try {
+        let rows = await pool.query('SELECT `rooms` FROM chatuser WHERE `id`=?', [userid]);
+        if(rows.length == 0) {
+            cbFunc(Error.create(status.unknownUser, 'unknown user id'));
+            return;
+        }
+
+        var rooms = rows[0]['rooms'];
+        var list = new utils.StringList();
+        list.set(rooms);
+        list.delete(roomid);
+        rooms = list.toString();
+        await pool.query('UPDATE chatuser SET `rooms` = ? WHERE `id`=?', [rooms, userid]);
+
+        try {
+            await pool.query('DELETE FROM chatmember WHERE `roomid`=? AND `user`=?', [roomid, userid]);
+            let rows = await pool.query('SELECT count(*) as cnt FROM chatmember WHERE `roomid`=?', [roomid]);
+            if (rows.length > 0 && rows[0]['cnt'] == 0) {
+                await pool.query('DELETE FROM chatroom WHERE `rid`=?', [roomid]);
+            }
+        } catch(error) {
+            // 사용자가 해당 방에 없는경우 무시해도 된다.
+            console.debug(error);
+        }
+
+        cbFunc();
+
+    } catch (error) {
+        cbFunc(error);
+    } finally {
+    }
+}
+
+async function sendMessage(message = new model.ChatMessage(), cbFunc) {
+    try {
+        await pool.query('INSERT INTO message_'+message.roomId+' (`sender`, `time`, `type`, `message`) VALUES (?,?,?,?)',
+        [message.sender, message.time, message.type, message.message]);
+        cbFunc();
+    } catch (error) {
+        cbFunc(error);
+    }
+};
+
 module.exports = {
     getEncPassword : util.promisify(getEncPassword),
     addUser : util.promisify(addUser),
     deleteUser : util.promisify(deleteUser),
     joinRoom : util.promisify(joinRoom),
-    createRoom : util.promisify(createRoom)
+    createRoom : util.promisify(createRoom),
+    exitRoom : util.promisify(exitRoom)
 }
