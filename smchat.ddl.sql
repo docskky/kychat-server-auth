@@ -56,8 +56,9 @@ create table smchat.messages_1234 (
 
 drop table if exists smchat.unreadmessagelist;
 create table smchat.unreadmessagelist (
-	`room_id` bigint(20) UNSIGNED NOT NULL,
-	`user_id` varchar(20),
+	`roomid` bigint(20) UNSIGNED NOT NULL,
+	`userid` varchar(20),
 	`new_count` boolean default false,
-	PRIMARY KEY (room_id, code, user_id)
+	PRIMARY KEY (roomid, userid)
 ) character set = utf8mb4;
+

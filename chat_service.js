@@ -82,7 +82,7 @@ var ChatService = function() {
 
     this.sendMessage = async (req, res) => {
         let userid = req.userid;
-        let message = req.body.message;
+        let message = req.body;
 
         if (v.isEmpty(message)) {
             middleware.handleError(Error.create(status.invalidParameter, 'invalid parameter'), req, res);
@@ -90,7 +90,19 @@ var ChatService = function() {
         }
 
         var msg = new model.ChatMessage(message);
-        
+
+        try {
+            await dao.addMessage(msg);
+            let result = await dao.increaseUnreadCounts(msg.roomId, userid)
+            console.debug('result:'+JSON.stringify(result));
+
+            // TODO: should broadcast here.
+
+            res.json(new model.Response());
+        } catch (error) {
+            middleware.handleError(error, req, res);
+            return;
+        }
     };
 
 

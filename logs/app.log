@@ -238,3 +238,19 @@
 {"message":"::1 - - [05/Jul/2019:16:56:21 +0000] \"POST /chat/exit_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [06/Jul/2019:15:43:41 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
 {"message":"::1 - - [06/Jul/2019:15:46:41 +0000] \"POST /chat/create_room HTTP/1.1\" 200 129 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:15:41:19 +0000] \"POST /login HTTP/1.1\" 200 407 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:15:43:01 +0000] \"POST /chat/message HTTP/1.1\" 404 152 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1064,"sqlState":"42000","code":"ER_PARSE_ERROR","level":"error"}
+{"message":"::1 - - [08/Jul/2019:15:43:11 +0000] \"POST /chat/message HTTP/1.1\" 200 281 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:15:44:20 +0000] \"POST /chat/message HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:15:52:35 +0000] \"POST /chat/message HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:15:53:51 +0000] \"POST /chat/message HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:15:56:49 +0000] \"POST /chat/message HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:16:02:50 +0000] \"POST /login HTTP/1.1\" 200 409 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:16:03:11 +0000] \"POST /chat/join_room HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:16:03:34 +0000] \"POST /chat/message HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1146,"sqlState":"42S02","code":"ER_NO_SUCH_TABLE","level":"error"}
+{"message":"::1 - - [08/Jul/2019:16:14:55 +0000] \"POST /chat/message HTTP/1.1\" 200 258 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"fatal":false,"errno":1146,"sqlState":"42S02","code":"ER_NO_SUCH_TABLE","level":"error"}
+{"message":"::1 - - [08/Jul/2019:16:20:15 +0000] \"POST /chat/message HTTP/1.1\" 200 260 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}
+{"message":"::1 - - [08/Jul/2019:16:20:38 +0000] \"POST /chat/message HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.15.0\"\n","level":"info"}

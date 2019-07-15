@@ -147,9 +147,10 @@ async function exitRoom(roomid, userid, cbFunc) {
     }
 }
 
-async function sendMessage(message = new model.ChatMessage(), cbFunc) {
+async function addMessage(message = new model.ChatMessage(), cbFunc) {
     try {
-        await pool.query('INSERT INTO message_'+message.roomId+' (`sender`, `time`, `type`, `message`) VALUES (?,?,?,?)',
+        console.debug('message:'+JSON.stringify(message));
+        await pool.query('INSERT INTO `messages_'+message.roomId+'` (`sender`, `time`, `type`, `message`) VALUES (?,?,?,?)',
         [message.sender, message.time, message.type, message.message]);
         cbFunc();
     } catch (error) {
@@ -157,11 +158,51 @@ async function sendMessage(message = new model.ChatMessage(), cbFunc) {
     }
 };
 
+/*
+    sender를 제외한 unread count를 1씩 증가시킨다.
+    return: {'username': 3}
+*/
+async function increaseUnreadCounts(roomid, sender, cbFunc) {
+    try {
+        var counts = {};
+
+        let rows = await pool.query('SELECT * FROM chatmember WHERE `roomid`=?', [roomid]);
+        for(var i=0; i < rows.length; i++) {
+            counts[rows[i]['user']]=0;
+        }
+
+        console.debug('roomid='+roomid+' counts:'+counts);
+
+        let rows2 = await pool.query('SELECT * FROM unreadmessagelist where `roomid`=?', [roomid]);
+        for (var i = 0; i < rows2.length; i++) {
+            const item = rows2[i];
+            counts[item['userid']] = item['new_count']
+        }
+
+        for(var i=0; i < rows.length; i++) {
+            const item = rows[i];
+            const userid = rows[i]['user'];
+            if(userid != sender) {
+                counts[userid] += 1;
+                let cnt = counts[userid];
+                await pool.query('INSERT INTO unreadmessagelist(`roomid`,`userid`,`new_count`)\
+                    VALUES(?,?,?) ON DUPLICATE KEY UPDATE `new_count`=?;', [roomid, userid, cnt, cnt]);
+            }
+        }
+
+        cbFunc(null, counts);
+    } catch (error) {
+        cbFunc(error);
+    }
+}
+
 module.exports = {
     getEncPassword : util.promisify(getEncPassword),
     addUser : util.promisify(addUser),
     deleteUser : util.promisify(deleteUser),
     joinRoom : util.promisify(joinRoom),
     createRoom : util.promisify(createRoom),
-    exitRoom : util.promisify(exitRoom)
+    exitRoom : util.promisify(exitRoom),
+    increaseUnreadCounts : util.promisify(increaseUnreadCounts),
+    addMessage : util.promisify(addMessage)
 }
