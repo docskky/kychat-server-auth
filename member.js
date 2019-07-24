@@ -27,6 +27,8 @@ var Member = function() {
       return;
     }
 
+    user.id = util.Account.PREFIX_KYCHAT + user.id;
+    
     try {
       user.password = await hash(password, config.saltRounds);
       let error = await dao.addUser(user);

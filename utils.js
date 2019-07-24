@@ -44,6 +44,26 @@ var StringList = function() {
     }
 };
 
+var Account = function() {
+    this.PREFIX_KYCHAT = '0:';
+    this.PREFIX_KAKAO = '1:';
+
+    // id가 카카오 계정인 경우 true
+    this.isKakao = (id) => {
+        if (v.isEmpty(id)) {
+            return false;
+        }
+
+        return v.startsWith(id, KAKAO_PREFIX);
+    }
+
+    this.toKakaoAcc = (kakaoID) => {
+        return KAKAO_PREFIX+kakaoID;
+    }
+
+}
+
 module.exports = {
-    StringList : StringList
+    StringList : StringList,
+    Account : Account
 };
