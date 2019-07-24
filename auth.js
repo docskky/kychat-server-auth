@@ -25,6 +25,7 @@ var Auth = function() {
     }
 
     try {
+      username = util.Account.PREFIX_KYCHAT + username;
       var pwHash = await dao.getEncPassword(username);
       const match = await bcrypt.compare(password, pwHash);
       if (match) {
