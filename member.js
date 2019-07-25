@@ -62,13 +62,14 @@ var Member = function() {
         headers: { 'Authorization': 'Bearer '+token }
       });
       console.log(response);
-      let result = response.data.result;
+      let result = response.data;
       let uid = result['id'];
       let props = result['properties'];
       let nickname = props['nickname'];
       let profile_image = props['profile_image'];
       let thumbnail_image = props['thumbnail_image'];
       
+      dao.get
       res.json({
         status: status.success,
         result : response.data

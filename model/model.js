@@ -16,10 +16,11 @@ class ChatUser {
         this.id = ''
         this.password = ''
         this.name = ''
+        this.nickname = ''
         this.fcm_token = ''
-        this.badge = 0
-        this.thumbnail = ''
-        this.photo = ''
+        this.badge_cnt = 0
+        this.img_profile = ''
+        this.img_thumbnail = ''
         this.rooms = ''
         
         Object.assign(this, options);

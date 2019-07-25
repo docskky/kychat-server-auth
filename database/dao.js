@@ -43,6 +43,19 @@ async function addUser(user, cbFunc) {
     }
 };
 
+async function updateSNSAccount(user, cbFunc) {
+    try {
+        await pool.query('INSERT INTO chatuser (`id`, `name`, `nickname`, `fcm_token`, `img_profile`, `img_thumbnail`) VALUES (?,?,?,?,?,?)\
+            ON DUPLICATE KEY UPDATE ');
+        INSERT INTO table (column_list)
+        VALUES (value_list)
+        
+           c1 = v1, 
+    } catch (err) {
+        
+    }
+}
+
 async function deleteUser(id, cbFunc) {
     try {
         await pool.query('DELETE FROM chatuser where `id`=?', [id]);

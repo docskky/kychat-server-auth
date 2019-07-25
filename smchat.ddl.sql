@@ -14,9 +14,11 @@ create table smchat.chatuser (
 	`id` varchar(20) NOT NULL primary key, /* 사용자 id */
 	`password` varchar(100),
 	`name` varchar(80),
+	`nickname` varchar(100),
 	`fcm_token` varchar(200),
 	`badge_cnt` int default 0,
-	`thumbnail` varchar(200),
+	`img_profile` varchar(200),
+	`img_thumbnail` varchar(200),
 	`photo` varchar(200),
 	`rooms` varchar(512),
 	`event_time` datetime
