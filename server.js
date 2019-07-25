@@ -32,7 +32,7 @@ function main () {
   app.post('/chat/join_room', middleware.checkToken, chat.joinRoom);
   app.post('/chat/exit_room', middleware.checkToken, chat.exitRoom);
   app.post('/chat/message', middleware.checkToken, chat.sendMessage);
-  app.post('/login_sns', member.joinKakao);
+  app.post('/login_kakao', auth.loginKakao);
   
   //authRoute.use(middleware.checkToken);
 

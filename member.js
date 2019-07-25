@@ -28,7 +28,7 @@ var Member = function() {
       return;
     }
 
-    user.id = util.Account.PREFIX_KYCHAT + user.id;
+    user.id = kyutil.Account.PREFIX_KYCHAT + user.id;
     
     try {
       user.password = await hash(password, config.saltRounds);
@@ -46,37 +46,6 @@ var Member = function() {
       middleware.handleError(error, req, res);
     }
 
-  }
-
-  this.joinKakao = async (req, res) => {
-    let token = req.body['token'];
-    if (v.isEmpty(token)) {
-      middleware.handleError(Error.create(status.invalidParameter, 'invalid parameter'), req, res);
-      return;
-    }
-
-    try {
-      const response = await axios({
-        method: 'get',
-        url: 'https://kapi.kakao.com/v1/user/me',
-        headers: { 'Authorization': 'Bearer '+token }
-      });
-      console.log(response);
-      let result = response.data;
-      let uid = result['id'];
-      let props = result['properties'];
-      let nickname = props['nickname'];
-      let profile_image = props['profile_image'];
-      let thumbnail_image = props['thumbnail_image'];
-      
-      dao.get
-      res.json({
-        status: status.success,
-        result : response.data
-      })
-    } catch(err) {
-      middleware.handleError(err, req, res);
-    }
   }
 
 };

@@ -2,7 +2,6 @@ const pool = require('./database');
 const util = require('util');
 const status = require('../config/status');
 const model = require('../model/model');
-const utils = require('../utils');
 require('../common')();
 
 async function getEncPassword(id, cbFunc) {
@@ -35,8 +34,8 @@ async function getUser(cbFunc) {
 
 async function addUser(user, cbFunc) {
     try {
-        await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `thumbnail`, `photo`) VALUES (?,?,?,?,?,?)',
-        [user["id"], user["password"], user["name"], user["fcm_token"], user["thumbnail"], user["photo"]]);
+        await pool.query('INSERT INTO chatuser (`id`, `password`, `name`, `fcm_token`, `img_profile`, `img_thumbnail`) VALUES (?,?,?,?,?,?)',
+        [user["id"], user["password"], user["name"], user["fcm_token"], user["img_profile"], user["img_thumbnail"]]);
         cbFunc();
     } catch (error) {
         cbFunc(error);
@@ -46,13 +45,13 @@ async function addUser(user, cbFunc) {
 async function updateSNSAccount(user, cbFunc) {
     try {
         await pool.query('INSERT INTO chatuser (`id`, `name`, `nickname`, `fcm_token`, `img_profile`, `img_thumbnail`) VALUES (?,?,?,?,?,?)\
-            ON DUPLICATE KEY UPDATE ');
-        INSERT INTO table (column_list)
-        VALUES (value_list)
-        
-           c1 = v1, 
+            ON DUPLICATE KEY UPDATE `name`=?, `nickname`=?, `fcm_token`=?, `img_profile`=?, `img_thumbnail`=?', 
+            [user["id"], user["nickname"], user["name"], user["fcm_token"], user["img_profile"], user["img_thumbnail"],
+            user["nickname"], user["name"], user["fcm_token"], user["img_profile"], user["img_thumbnail"]
+        ]);
+        cbFunc();
     } catch (err) {
-        
+        cbFunc(error);
     }
 }
 
@@ -102,7 +101,7 @@ async function joinRoom(roomid, userid, cbFunc) {
         }
         console.debug('result:'+rows);
         var rooms = rows[0]['rooms'];
-        var list = new utils.StringList();
+        var list = new kyutil.StringList();
         list.set(rooms);
         list.add(roomid);
         rooms = list.toString();
@@ -135,7 +134,7 @@ async function exitRoom(roomid, userid, cbFunc) {
         }
 
         var rooms = rows[0]['rooms'];
-        var list = new utils.StringList();
+        var list = new kyutil.StringList();
         list.set(rooms);
         list.delete(roomid);
         rooms = list.toString();
@@ -212,6 +211,7 @@ async function increaseUnreadCounts(roomid, sender, cbFunc) {
 module.exports = {
     getEncPassword : util.promisify(getEncPassword),
     addUser : util.promisify(addUser),
+    updateSNSAccount : util.promisify(updateSNSAccount),
     deleteUser : util.promisify(deleteUser),
     joinRoom : util.promisify(joinRoom),
     createRoom : util.promisify(createRoom),
