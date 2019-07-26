@@ -3,11 +3,11 @@ const v = require('voca');
 const bcrypt = require('bcrypt');
 const config = require('./config/config');
 const dao = require('./database/dao')
-const kyutil = require('./kyutil');
+//const kyutil = require('./kyutil');
 const util = require('util');
 const status = require('./config/status');
 const model = require('./model/model');
-let middleware = require('./middleware');
+//let middleware = require('./middleware');
 const axios = require('axios');
 
 require('./common')();
@@ -152,6 +152,7 @@ var Auth = function() {
 
     return {
       accessToken: token,
+      expiresIn: config.tokenTTL,
       refreshToken: refreshToken
     };
   };
